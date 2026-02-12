@@ -3,8 +3,10 @@ import { Filter } from '../enums/Filter';
 
 type Props = {
   activeCount: number;
+  completedCount: number;
   filter: Filter;
   onFilterChange: (filter: Filter) => void;
+  onClearCompleted: () => void;
 };
 
 const FILTERS = [
@@ -19,8 +21,10 @@ const FILTERS = [
 
 export const Footer: React.FC<Props> = ({
   activeCount,
+  completedCount,
   filter,
   onFilterChange,
+  onClearCompleted,
 }) => {
   return (
     <footer className="todoapp__footer" data-cy="Footer">
@@ -48,7 +52,8 @@ export const Footer: React.FC<Props> = ({
         type="button"
         className="todoapp__clear-completed"
         data-cy="ClearCompletedButton"
-        disabled
+        disabled={completedCount === 0}
+        onClick={onClearCompleted}
       >
         Clear completed
       </button>

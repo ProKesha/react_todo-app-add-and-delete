@@ -3,10 +3,15 @@ import classNames from 'classnames';
 
 type Props = {
   isVisible: boolean;
+  message: string;
   onClose: () => void;
 };
 
-export const ErrorNotification: React.FC<Props> = ({ isVisible, onClose }) => {
+export const ErrorNotification: React.FC<Props> = ({
+  isVisible,
+  message,
+  onClose,
+}) => {
   useEffect(() => {
     if (!isVisible) {
       return;
@@ -33,7 +38,7 @@ export const ErrorNotification: React.FC<Props> = ({ isVisible, onClose }) => {
         className="delete"
         onClick={onClose}
       />
-      Unable to load todos
+      {message}
     </div>
   );
 };
