@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import classNames from 'classnames';
 import { Todo } from './types/Todo';
 import { addTodo, deleteTodo, getTodos, USER_ID } from './api/todos';
 import { TodoList } from './components/TodoList';
@@ -157,11 +156,7 @@ export const App: React.FC = () => {
   const hasTodos = todos.length > 0 || Boolean(tempTodo);
 
   return (
-    <div
-      className={classNames('todoapp', {
-        'has-error': Boolean(errorMessage),
-      })}
-    >
+    <div className="todoapp">
       <h1 className="todoapp__title">todos</h1>
 
       <div className="todoapp__content">
